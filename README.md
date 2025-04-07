@@ -87,5 +87,10 @@ Email: jane.smith@yahoo.com
 
 ---
 
+###  Unit Testing Script"
+```bash
+ruby -I. test_client_searcher.rb
+```
+
 Thanks,
 Carlo
