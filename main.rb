@@ -28,20 +28,22 @@ class ClientSearcher
   end
 end
 
-if ARGV.empty?
-  puts "Usage:"
-  puts "ruby main.rb search <name_query>       - Search clients by name"
-  puts "ruby main.rb duplicates                - Show duplicate emails"
-  exit
-end
+if __FILE__ == $0
+  if ARGV.empty?
+    puts "Usage:"
+    puts "ruby main.rb search <name_query>       - Search clients by name"
+    puts "ruby main.rb duplicates                - Show duplicate emails"
+    exit
+  end
 
-app = ClientSearcher.new("clients.json")
+  app = ClientSearcher.new("clients.json")
 
-case ARGV[0]
-when "search"
-  app.search_by_name(ARGV[1..].join(" "))
-when "duplicates"
-  app.find_duplicate_emails
-else
-  puts "Unknown command."
+  case ARGV[0]
+  when "search"
+    app.search_by_name(ARGV[1..].join(" "))
+  when "duplicates"
+    app.find_duplicate_emails
+  else
+    puts "Unknown command."
+  end
 end
